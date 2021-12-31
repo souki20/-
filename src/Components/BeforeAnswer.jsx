@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 const BeforeAnswer = () => {
   return(
-    <div>BeforeAnswer</div>
+    <div className='beforeAnswer-content'>BeforeAnswer</div>
   )
 }
 

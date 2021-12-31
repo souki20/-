@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 const Question = () => {
   return(
-    <div>Question</div>
+    <div className='question-content'>Question</div>
   )
 }
 
