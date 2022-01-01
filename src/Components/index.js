@@ -1,3 +1,4 @@
+export {default as AnswerList} from './AnswerList';
 export {default as Answer} from './Answer';
 export {default as BeforeAnswer} from './BeforeAnswer';
 export {default as Question} from './Question';

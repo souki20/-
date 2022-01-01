@@ -19,14 +19,11 @@ const useStyles = makeStyles(() => (
 
 const Answer = (props) => {
   const classes = useStyles();
-  let list = [];
-
-  for (let i=0; i<props.answers.length; i++) {
-    list.push(<Button className={classes.button} variant="contained">{props.answers[i]}</Button>);
-  }
 
   return(
-    <div className='answer-content'>{list}</div>
+    <Button className={classes.button} key={props.count} variant="contained">
+      {props.value}
+    </Button>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Answer, BeforeAnswer, Question, QuestionNumber} from './Components/index';
+import {AnswerList, BeforeAnswer, Question, QuestionNumber} from './Components/index';
 import defaultDataset from './dataset';
 
 
@@ -27,11 +27,14 @@ class App extends React.Component {
       question: initQuestion,
       answers: initAnswer
     })
+    console.log('componentDidMount')
+    console.log(this.state.answers)
   }
-
+  
   componentDidMount() {
     this.initDataset()
   }
+
 
 
   render() {
@@ -43,7 +46,7 @@ class App extends React.Component {
         <div className='main-section'>
           <div className='main-content-left'>
             <Question />
-            <Answer answers={this.state.answers}/>
+            <AnswerList answers={this.state.answers}/>
           </div>
           <div className='main-content-right'>
             <BeforeAnswer />
