@@ -11,7 +11,7 @@ class App extends React.Component {
       dataset: defaultDataset,
       currentId: "1",
       nextQuestionId: "",
-      totalQuestions: 7,
+      totalQuestions: "",
       question: "",
       answers: "",
     }
@@ -22,13 +22,13 @@ class App extends React.Component {
     const initData = this.state.dataset[this.state.currentId];
     const initQuestion = initData.question;
     const initAnswer = initData.answers;
+    const initTotalQuestions = Object.keys(this.state.dataset).length; 
 
     this.setState({
       question: initQuestion,
-      answers: initAnswer
+      answers: initAnswer,
+      totalQuestions: initTotalQuestions,
     })
-    console.log('componentDidMount')
-    console.log(this.state.answers)
   }
   
   componentDidMount() {
@@ -41,7 +41,7 @@ class App extends React.Component {
     return(
       <>
         <div className='page-section'>
-          <QuestionNumber totalQuestions={this.state.totalQuestions} />
+          <QuestionNumber totalQuestions={this.state.totalQuestions} data={this.state.dataset} />
         </div>
         <div className='main-section'>
           <div className='main-content-left'>

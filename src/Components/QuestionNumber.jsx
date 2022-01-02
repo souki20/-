@@ -21,15 +21,19 @@ const useStyles = makeStyles(() => (
 
 const QuestionNumber = (props) => {
   const classes = useStyles();
-  let list = [];
-
-  for (let i=0; i<props.totalQuestions; i++) {
-    list.push(<Button className={classes.button} variant="contained">{i+1}</Button>);
-  }
+  
+  let numbers = [];
+  numbers = Object.keys(props.data);
 
   return(
     <div className='page-list'>
-      {list}
+      {numbers.map((number, index) => {
+        return (
+          <Button className={classes.button} variant="contained" key={index}>
+            {number}
+          </Button>
+        )
+      })}
     </div>
   )
 }
