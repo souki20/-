@@ -13,6 +13,7 @@ class App extends React.Component {
       nextQuestionId: "",
       totalQuestions: "",
       question: "",
+      questions: ["質問１の回答は,", "質問２の回答は,", "質問３の回答は,", "質問４の回答は,", "質問５の回答は,", "質問６の回答は,", "質問７の回答は,"],
       answers: "",
       answerList: [],
     }
@@ -79,7 +80,7 @@ class App extends React.Component {
             <AnswerList answers={this.state.answers} select={this.selectAnswer}/>
           </div>
           <div className='main-content-right'>
-            <BeforeAnswer />
+            <BeforeAnswer value={this.state.answerList} questions={this.state.questions}/>
           </div>
         </div>
       </>
