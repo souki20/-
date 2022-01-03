@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       dataset: defaultDataset,
-      currentId: "1",
+      currentId: 1,
       nextQuestionId: "",
       totalQuestions: "",
       question: "",
@@ -36,17 +36,41 @@ class App extends React.Component {
   }
 
 
+  selectNumber = (index) => {
+    let currentData = this.state.dataset[index];
+    let currentQuestion = currentData.question;
+    let currentAnswers = currentData.answers;
+    this.setState({
+      currentId: index,
+      question: currentQuestion,
+      answers: currentAnswers,
+    })
+  }
+
+  selectAnswer = () => {
+    let nextId = Number(this.state.currentId)+1;
+    let nextData = this.state.dataset[nextId];
+    let nextQuestion = nextData.question;
+    let nextAnswers = nextData.answers;
+    this.setState({
+      currentId: nextId,
+      question: nextQuestion,
+      answers: nextAnswers,
+    })
+  }
+
+
 
   render() {
     return(
       <>
         <div className='page-section'>
-          <QuestionNumber totalQuestions={this.state.totalQuestions} data={this.state.dataset} />
+          <QuestionNumber totalQuestions={this.state.totalQuestions} data={this.state.dataset} select={this.selectNumber}/>
         </div>
         <div className='main-section'>
           <div className='main-content-left'>
-            <Question />
-            <AnswerList answers={this.state.answers}/>
+            <Question data={this.state.question} />
+            <AnswerList answers={this.state.answers} select={this.selectAnswer}/>
           </div>
           <div className='main-content-right'>
             <BeforeAnswer />

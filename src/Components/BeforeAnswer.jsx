@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-const BeforeAnswer = () => {
+const BeforeAnswer = (props) => {
   return(
     <div className='beforeAnswer-content'>BeforeAnswer</div>
   )

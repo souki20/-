@@ -18,10 +18,9 @@ const useStyles = makeStyles(() => (
 ));
 
 
-
 const QuestionNumber = (props) => {
   const classes = useStyles();
-  
+
   let numbers = [];
   numbers = Object.keys(props.data);
 
@@ -29,7 +28,7 @@ const QuestionNumber = (props) => {
     <div className='page-list'>
       {numbers.map((number, index) => {
         return (
-          <Button className={classes.button} variant="contained" key={index}>
+          <Button className={classes.button} variant="contained" key={index} onClick={() => props.select(index+1)}>
             {number}
           </Button>
         )

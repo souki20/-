@@ -13,7 +13,7 @@ const AnswerList = (props) => {
   return (
     <div className='answer-content'>
       {answers.map((answer, index) => {
-        return <Answer value={answer} count={index}/>
+        return <Answer value={answer} count={index} select={props.select}/>
       })}
     </div>
   )

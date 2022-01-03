@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-const Question = () => {
+
+
+const Question = (props) => {
   return(
-    <div className='question-content'>Question</div>
+    <div className='question-content'>{props.data}</div>
   )
 }
 
