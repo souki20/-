@@ -14,6 +14,7 @@ class App extends React.Component {
       totalQuestions: "",
       question: "",
       answers: "",
+      answerList: [],
     }
   }
 
@@ -47,7 +48,11 @@ class App extends React.Component {
     })
   }
 
-  selectAnswer = () => {
+
+  selectAnswer = (value) => {
+    let currentAnswerList = this.state.answerList;
+    let newAnswerList = currentAnswerList.concat(value);
+
     let nextId = Number(this.state.currentId)+1;
     let nextData = this.state.dataset[nextId];
     let nextQuestion = nextData.question;
@@ -56,6 +61,7 @@ class App extends React.Component {
       currentId: nextId,
       question: nextQuestion,
       answers: nextAnswers,
+      answerList: newAnswerList,
     })
   }
 

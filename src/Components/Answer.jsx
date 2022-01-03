@@ -21,7 +21,7 @@ const Answer = (props) => {
   const classes = useStyles();
 
   return(
-    <Button className={classes.button} variant="contained" key={props.count} onClick={() => props.select()}>
+    <Button className={classes.button} variant="contained" key={props.count} onClick={() => props.select(props.value)}>
       {props.value}
     </Button>
   )
