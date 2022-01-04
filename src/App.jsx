@@ -13,10 +13,14 @@ class App extends React.Component {
       nextQuestionId: "",
       totalQuestions: "",
       question: "",
-      questions: ["質問１の回答は,", "質問２の回答は,", "質問３の回答は,", "質問４の回答は,", "質問５の回答は,", "質問６の回答は,", "質問７の回答は,"],
+      beforeQuestions: ["質問１の回答は,", "質問２の回答は,", "質問３の回答は,", "質問４の回答は,", "質問５の回答は,", "質問６の回答は,", "質問７の回答は,"],
       answers: "",
       answerList: [],
+      count: 0,
     }
+
+    // this.selectNumber = this.selectNumber.bind(this);
+    // this.selectAnswer = this.selectAnswer.bind(this);
   }
 
 
@@ -49,7 +53,6 @@ class App extends React.Component {
     })
   }
 
-
   selectAnswer = (value) => {
     let currentAnswerList = this.state.answerList;
     let newAnswerList = currentAnswerList.concat(value);
@@ -80,7 +83,7 @@ class App extends React.Component {
             <AnswerList answers={this.state.answers} select={this.selectAnswer}/>
           </div>
           <div className='main-content-right'>
-            <BeforeAnswer value={this.state.answerList} questions={this.state.questions}/>
+            <BeforeAnswer currentId={this.state.currentId} value={this.state.answerList} questions={this.state.beforeQuestions} count={this.state.count}/>
           </div>
         </div>
       </>

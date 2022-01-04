@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { RenderBeforeAnswer } from './index';
+
+
 
 
 const BeforeAnswer = (props) => {
-  let questionList = props.questions;
-
-  return(
+  // console.log(props.count);
+  
+  return (
     <div className='beforeAnswer-content'>
-      {props.value.map((value, index) => {
-        return <div className='beforeAnswer-item' key={index}>{questionList[index]}{value}</div>
-      })}
+      {RenderBeforeAnswer(props)}
+      {/* {props.value.map((value, index) => {
+        console.log('それ以外')
+        return (<div className='beforeAnswer-item' key={index}>{props.questions[index]}{value}</div>);
+      })} */}
     </div>
   )
+
+
+
 }
 
 export default BeforeAnswer;
