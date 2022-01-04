@@ -83,7 +83,7 @@ class App extends React.Component {
             <AnswerList answers={this.state.answers} select={this.selectAnswer}/>
           </div>
           <div className='main-content-right'>
-            <BeforeAnswer currentId={this.state.currentId} value={this.state.answerList} questions={this.state.beforeQuestions} count={this.state.count}/>
+            <BeforeAnswer currentId={this.state.currentId} value={this.state.answerList} questions={this.state.beforeQuestions} />
           </div>
         </div>
       </>

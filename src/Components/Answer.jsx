@@ -7,11 +7,10 @@ import { makeStyles, createStyles } from '@material-ui/styles';
 const useStyles = makeStyles(() => (
   createStyles({
     "button": {
-      width: '100px',
-      height: '100px',
+      width: '7rem',
+      height: '7rem',
       minWidth: 0,
       borderRadius: '50%',
-      margin: '20px',
     },
   })
 ));
