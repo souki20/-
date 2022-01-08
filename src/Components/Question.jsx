@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 const Question = (props) => {
   return(
-    <div className='question-content'>{props.data}</div>
+    <div className='question-content'>{props.question}</div>
   )
 }
 

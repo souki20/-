@@ -1,13 +1,56 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {AnswerList, BeforeAnswer, Question, QuestionNumber} from './Components/index';
+import { Diagnose } from './Components';
+import Confirmation from './Confirmation';
 import defaultDataset from './dataset';
 
 
+// const Main = (count) => {
+//   // if(count)
+// }
+
+
 class App extends React.Component {
+
+
+  selectNumber = (index) => {
+    let currentData = this.state.dataset[index];
+    let currentQuestion = currentData.question;
+    let currentAnswers = currentData.answers;
+    this.setState({
+      currentId: index,
+      question: currentQuestion,
+      answers: currentAnswers,
+    })
+  }
+  
+  selectAnswer = (value) => {
+    let currentAnswerList = this.state.answerList;
+    let newAnswerList = currentAnswerList.concat(value);
+  
+    let nextId = Number(this.state.currentId)+1;
+    let nextData = this.state.dataset[nextId];
+    let nextQuestion = nextData.question;
+    let nextAnswers = nextData.answers;
+    if(nextQuestion) {
+      this.setState({
+        currentId: nextId,
+        question: nextQuestion,
+        answers: nextAnswers,
+        answerList: newAnswerList,
+      })
+    } else {
+
+    }
+  }
+  
+
+
+
   constructor(props) {
     super(props);
     this.state = {
+      title: "シミュレーション",
       dataset: defaultDataset,
       currentId: 1,
       nextQuestionId: "",
@@ -19,8 +62,8 @@ class App extends React.Component {
       count: 0,
     }
 
-    // this.selectNumber = this.selectNumber.bind(this);
-    // this.selectAnswer = this.selectAnswer.bind(this);
+    this.selectNumber = this.selectNumber.bind(this);
+    this.selectAnswer = this.selectAnswer.bind(this);
   }
 
 
@@ -42,51 +85,26 @@ class App extends React.Component {
   }
 
 
-  selectNumber = (index) => {
-    let currentData = this.state.dataset[index];
-    let currentQuestion = currentData.question;
-    let currentAnswers = currentData.answers;
-    this.setState({
-      currentId: index,
-      question: currentQuestion,
-      answers: currentAnswers,
-    })
-  }
-
-  selectAnswer = (value) => {
-    let currentAnswerList = this.state.answerList;
-    let newAnswerList = currentAnswerList.concat(value);
-
-    let nextId = Number(this.state.currentId)+1;
-    let nextData = this.state.dataset[nextId];
-    let nextQuestion = nextData.question;
-    let nextAnswers = nextData.answers;
-    this.setState({
-      currentId: nextId,
-      question: nextQuestion,
-      answers: nextAnswers,
-      answerList: newAnswerList,
-    })
-  }
-
-
-
   render() {
-    return(
-      <>
-        <div className='page-section'>
-          <QuestionNumber totalQuestions={this.state.totalQuestions} data={this.state.dataset} select={this.selectNumber}/>
-        </div>
-        <div className='main-section'>
-          <div className='main-content-left'>
-            <Question data={this.state.question} />
-            <AnswerList answers={this.state.answers} select={this.selectAnswer}/>
-          </div>
-          <div className='main-content-right'>
-            <BeforeAnswer currentId={this.state.currentId} value={this.state.answerList} questions={this.state.beforeQuestions} />
-          </div>
-        </div>
-      </>
+    return (
+      // <Diagnose 
+      //   dataset={this.state.dataset}
+      //   currentId={this.state.currentId}
+      //   nextQuestionId={this.state.nextQuestionId}
+      //   totalQuestions={this.state.totalQuestions}
+      //   question={this.state.question}
+      //   beforeQuestions={this.state.beforeQuestions}
+      //   answers={this.state.answers}
+      //   answerList={this.state.answerList}
+      //   selectNumber={this.selectNumber}
+      //   selectAnswer={this.selectAnswer}
+      // />
+      <Confirmation 
+        title={this.state.title}
+        currentId={this.state.currentId}
+        answerList={this.state.answerList}
+        beforeQuestions={this.state.beforeQuestions}
+      />
     )
   }
 }

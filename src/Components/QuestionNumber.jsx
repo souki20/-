@@ -28,8 +28,13 @@ const QuestionNumber = (props) => {
     <div className='page-list'>
       {numbers.map((number, index) => {
         return (
-          <Button className={classes.button} variant="contained" key={index} onClick={() => props.select(index+1)}>
-            {number}
+          <Button 
+            className={classes.button}
+            variant="contained"
+            key={index.toString()}
+            onClick={() => props.select(index+1)}
+          >
+          {number}
           </Button>
         )
       })}

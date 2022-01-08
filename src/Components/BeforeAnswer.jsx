@@ -13,8 +13,6 @@ const BeforeAnswer = (props) => {
     </div>
   )
 
-
-
 }
 
 export default BeforeAnswer;

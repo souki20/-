@@ -1,3 +1,25 @@
+.top-section {
+  display: flex;
+  max-width: 960px;
+  height: 65vh;
+  margin: 100px auto 0;
+  background-color: #F1F5B9;
+}
+.top-content-left {
+  display: flex;
+  flex-flow: column;
+  width: 75%;
+  padding: 0 30px 0 100px;
+  align-items: center;
+}
+.top-content-left div {
+  font-size: 2rem;
+  margin: 60px 0 30px 0;
+}
+.top-content-right {
+  width: 25%;
+}
+
 .page-list {
   display: flex;
   justify-content: center;
