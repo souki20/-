@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Diagnose } from './Components';
 import Confirmation from './Confirmation';
+import TopPage from './Components/TopPage';
 import defaultDataset from './dataset';
 
 
@@ -50,7 +51,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "シミュレーション",
       dataset: defaultDataset,
       currentId: 1,
       nextQuestionId: "",
@@ -99,11 +99,17 @@ class App extends React.Component {
       //   selectNumber={this.selectNumber}
       //   selectAnswer={this.selectAnswer}
       // />
-      <Confirmation 
-        title={this.state.title}
-        currentId={this.state.currentId}
-        answerList={this.state.answerList}
-        beforeQuestions={this.state.beforeQuestions}
+
+      // <Confirmation 
+      //   title='シミュレーション'
+      //   currentId={this.state.currentId}
+      //   answerList={this.state.answerList}
+      //   beforeQuestions={this.state.beforeQuestions}
+      // />
+
+      <TopPage
+        title='シミュレーション'
+        
       />
     )
   }
