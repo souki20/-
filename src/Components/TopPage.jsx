@@ -3,6 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import { BeforeAnswer } from './Components';
 import { makeStyles, createStyles } from '@material-ui/styles';
+import { useDispatch, useSelector } from 'react-redux';
+import { initDataset } from '../Redux/actions';
+
 
 
 const useStyles = makeStyles(() => (
@@ -26,8 +29,10 @@ const useStyles = makeStyles(() => (
 
 
 
+
 const TopPage = (props) => {
   const classes = useStyles();
+
 
   return (
     <div className="top-section">
@@ -35,7 +40,11 @@ const TopPage = (props) => {
         <div>
           {props.title}  
         </div>
-        <Button variant="contained" className={classes.mainButton}> 今すぐ診断をする </Button>
+        <Button 
+          variant="contained"
+          className={classes.mainButton}
+          onClick={() => {props.dispatch({type: "INIT_DATASET"})}}
+        > 今すぐ診断をする </Button>
         <Button variant="contained" className={classes.subButton}> 説明を見る </Button>
       </div>
     </div>

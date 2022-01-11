@@ -23,7 +23,7 @@ const Answer = (props) => {
     <Button
       className={classes.button}
       variant="contained"
-      key={props.count}
+      key={props.count.toString()}
       onClick={() => props.select(props.value)}
     >
     {props.value}
