@@ -14,7 +14,7 @@ const App = () => {
 
   // stateの必要な部分を返す関数の引数を受け取ります
   const selector = useSelector((state) => state);
-  console.log('App.jsx');
+  // console.log('App.jsx');
   console.log(selector.contents);
 
 
@@ -27,38 +27,11 @@ const App = () => {
 
 
 
-  // render() {
     return (
-      // <Diagnose 
-      //   dataset={this.state.dataset}
-      //   currentId={this.state.currentId}
-      //   nextQuestionId={this.state.nextQuestionId}
-      //   totalQuestions={this.state.totalQuestions}
-      //   question={this.state.question}
-      //   beforeQuestions={this.state.beforeQuestions}
-      //   answers={this.state.answers}
-      //   answerList={this.state.answerList}
-      //   selectNumber={this.selectNumber}
-      //   selectAnswer={this.selectAnswer}
-      // />
-
-      // <Confirmation 
-      //   title='シミュレーション'
-      //   currentId={this.state.currentId}
-      //   answerList={this.state.answerList}
-      //   beforeQuestions={this.state.beforeQuestions}
-      // />
-
-      // <TopPage
-      //   title='シミュレーション'
-      //   selector={selector.contents}
-      //   dispatch={dispatch}
-      // />
       <main >
         <Router />
       </main>
     )
-  // }
 }
 
 export default App;

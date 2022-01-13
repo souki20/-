@@ -30,7 +30,7 @@ const QuestionNumber = () => {
   let numbers = [];
   // numbers = Object.keys(props.data);
   numbers = Object.keys(selector.dataset);
-  console.log(numbers);
+  console.log(numbers.length);
 
   return(
     <div className='page-list'>

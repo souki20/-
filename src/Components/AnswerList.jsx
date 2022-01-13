@@ -19,7 +19,7 @@ const AnswerList = (props) => {
       {answers.map((answer, index) => {
         return <Answer
         value={answer} 
-        count={index} 
+        key={index.toString()} 
         // select={props.select}
         />
       })}
