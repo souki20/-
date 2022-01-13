@@ -1,16 +1,18 @@
 // アプリから受け取った「state」の変更依頼をReducersに渡す
 
-import { useState } from "react";
-
-
+// Action Type
 export const INIT_DATASET = "INIT_DATASET";
-export const initDataset = (state) => {
+export const SELECT_NUMBER = "SELECT_NUMBER";
+export const SELECT_ANSWER = "SELECT_ANSWER";
+
+
+// Action Creater
+export const initDataset = () => {
   return{
     type: INIT_DATASET,
   }
 }
 
-export const SELECT_NUMBER = "SELECT_NUMBER";
 export const selectNumber = (state, index) => {
   let currentData = state.dataset[index];
   let currentQuestion = currentData.question;
@@ -26,7 +28,6 @@ export const selectNumber = (state, index) => {
   }
 }
 
-export const SELECT_ANSWER = "SELECT_ANSWER";
 export const selectAnswer = (state, value) => {
   let currentAnswerList = state.answerList;
   let newAnswerList = currentAnswerList.concat(value);

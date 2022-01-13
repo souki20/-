@@ -12,11 +12,14 @@ import * as History from 'history';
 // ========================================
 
 
-// storeの作成
-// export const store1 = reduxCreateStore();
+// StoreとRouterの接続
 
+// 今までどこのパスにいたのか、現在はどこのパスにいるのかの履歴を作り出す
 const history = History.createBrowserHistory();
+
+// storeの作成
 export const store = reduxCreateStore(history);
+
 
 ReactDOM.render(
   <React.StrictMode>

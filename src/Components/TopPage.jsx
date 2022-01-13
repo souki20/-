@@ -1,11 +1,12 @@
 import { Button } from '@material-ui/core';
-import React from 'react';
+import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom';
-// import { BeforeAnswer } from './Components';
 import { makeStyles, createStyles } from '@material-ui/styles';
+import { push } from 'connected-react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { initDataset } from '../Redux/actions';
-
+// import { initDataset } from './Redux/actions';
+import { store } from '..';
+// import { INIT_DATASET } from '../Redux/actions';
 
 
 const useStyles = makeStyles(() => (
@@ -28,22 +29,22 @@ const useStyles = makeStyles(() => (
 ));
 
 
-
-
 const TopPage = (props) => {
   const classes = useStyles();
+
+  const dispatch = useDispatch();
 
 
   return (
     <div className="top-section">
       <div className="top-content-left">
         <div>
-          {props.title}  
+          シミュレーション 
         </div>
         <Button 
           variant="contained"
           className={classes.mainButton}
-          onClick={() => {props.dispatch({type: "INIT_DATASET"})}}
+          onClick={() => {dispatch(push("/diagnose"))}}
         > 今すぐ診断をする </Button>
         <Button variant="contained" className={classes.subButton}> 説明を見る </Button>
       </div>

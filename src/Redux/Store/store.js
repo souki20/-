@@ -8,6 +8,7 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 // historyは今どこにいるかを渡している
 export default function reduxCreateStore(history) {
   return createStore(
+
     // stateを生成
     // 分割したreducersをまとめる
     // routerでhistoryを管理
@@ -15,7 +16,10 @@ export default function reduxCreateStore(history) {
       router: connectRouter(history),
       contents: defaultReducer,
     }),
+
+    // MiddleWareを導入
     applyMiddleware(
+      // routerをmiddlewareとして使うことを宣言
       routerMiddleware(history)
     )
   )

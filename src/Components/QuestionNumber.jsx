@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { Button } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import '../styles/style.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectNumber } from '../Redux/actions';
 
 
 const useStyles = makeStyles(() => (
@@ -18,11 +20,17 @@ const useStyles = makeStyles(() => (
 ));
 
 
-const QuestionNumber = (props) => {
+const QuestionNumber = () => {
   const classes = useStyles();
 
+  // const contentsSelector = (state) => state.contents;
+  const selector = useSelector(state => state.contents);
+  const dispatch = useDispatch();
+
   let numbers = [];
-  numbers = Object.keys(props.data);
+  // numbers = Object.keys(props.data);
+  numbers = Object.keys(selector.dataset);
+  console.log(numbers);
 
   return(
     <div className='page-list'>
@@ -32,7 +40,8 @@ const QuestionNumber = (props) => {
             className={classes.button}
             variant="contained"
             key={index.toString()}
-            onClick={() => props.select(index+1)}
+            // onClick={() => props.select(index+1)}
+            onClick={() => dispatch(selectNumber(selector, index))}
           >
           {number}
           </Button>

@@ -40,9 +40,9 @@ const Confirmation = (props) => {
       </div>
       <div className='top-content-right'>
         <BeforeAnswer
-          currentId={props.currentId}
-          value={props.answerList}
-          questions={props.beforeQuestions}
+          // currentId={props.currentId}
+          // value={props.answerList}
+          // questions={props.beforeQuestions}
         />
       </div>
     </div>
