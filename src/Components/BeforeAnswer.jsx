@@ -14,7 +14,7 @@ const RenderBeforeAnswer = (props) => {
   } else {
     return (
       selector.answerList.map((value, index) => {
-        return <div className='beforeAnswer-item'>{selector.beforeQuestions[index]}{value}</div>;
+        return <div className='beforeAnswer-item' key={index.toString()}>{selector.beforeQuestions[index]}{value}</div>;
       })
     )
   }

@@ -32,17 +32,31 @@ export const selectAnswer = (state, value) => {
   let currentAnswerList = state.answerList;
   let newAnswerList = currentAnswerList.concat(value);
   let nextId = Number(state.currentId)+1;
-  let nextData = state.dataset[nextId];
-  let nextQuestion = nextData.question;
-  let nextAnswers = nextData.answers;
 
-  return{
-    type: SELECT_ANSWER,
-    payload: {
-      currentId: nextId,
-      question: nextQuestion,
-      answers: nextAnswers,
-      answerList: newAnswerList,
+  if(nextId == state.totalQuestions+1) {
+    return{
+      type: SELECT_ANSWER,
+      payload: {
+        answerList: newAnswerList,
+      }
+    }
+  } else {
+    let nextData = state.dataset[nextId];
+    let nextQuestion = nextData.question;
+    let nextAnswers = nextData.answers;
+    return{
+      type: SELECT_ANSWER,
+      payload: {
+        currentId: nextId,
+        question: nextQuestion,
+        answers: nextAnswers,
+        answerList: newAnswerList,
+      }
     }
   }
+}
+
+
+export const lastAnswerClick = () => {
+
 }

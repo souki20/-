@@ -21,13 +21,18 @@ const useStyles = makeStyles(() => (
 
 const changeConfirmation = (props,classes,selector,dispatch,numbers, currentId) => {
 
+  const lastAnswerClick = () => {
+    dispatch(selectAnswer(selector, props.value));
+    dispatch(push("/confirmation"));
+  }
+
   if(currentId == numbers.length){
     return (
     <Button
       className={classes.button}
       variant="contained"
       key={props.count}
-      onClick={() => dispatch(push("/confirmation"))}
+      onClick={() => lastAnswerClick()}
     >
     {props.value}
     </Button>
@@ -38,7 +43,7 @@ const changeConfirmation = (props,classes,selector,dispatch,numbers, currentId) 
       className={classes.button}
       variant="contained"
       key={props.count}
-      onClick={() => dispatch((selectAnswer(selector, props.value)))}
+      onClick={() => dispatch(selectAnswer(selector, props.value))}
     >
     {props.value}
     </Button>
@@ -49,9 +54,6 @@ const changeConfirmation = (props,classes,selector,dispatch,numbers, currentId) 
 
 const Answer = (props) => {
   const classes = useStyles();
-
-  // const contentsSelector = (state) => state.contents;
-  // const selector = useSelector(state => state.contents);
 
   const selector = useSelector(state => state.contents);
   const dispatch = useDispatch();

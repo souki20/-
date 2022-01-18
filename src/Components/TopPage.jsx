@@ -34,7 +34,6 @@ const TopPage = (props) => {
 
   const dispatch = useDispatch();
 
-
   return (
     <div className="top-section">
       <div className="top-content-left">
