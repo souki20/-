@@ -35,17 +35,29 @@ const QuestionNumber = () => {
   return(
     <div className='page-list'>
       {numbers.map((number, index) => {
-        return (
-          <Button 
-            className={classes.button}
-            variant="contained"
-            key={index.toString()}
-            // onClick={() => props.select(index+1)}
-            onClick={() => dispatch(selectNumber(selector, index))}
-          >
-          {number}
-          </Button>
-        )
+        if(index < selector.currentId){
+          return (
+            <Button 
+              className={classes.button}
+              variant="contained"
+              key={index.toString()}
+              // onClick={() => props.select(index+1)}
+              onClick={() => dispatch(selectNumber(selector, index))}
+            >
+            {number}
+            </Button>
+          )
+        } else {
+          return (
+            <Button 
+              className={classes.button}
+              variant="contained"
+              key={index.toString()}
+            >
+            {number}
+            </Button>
+          )
+        }
       })}
     </div>
   )

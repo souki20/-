@@ -14,16 +14,24 @@ export const initDataset = () => {
 }
 
 export const selectNumber = (state, index) => {
-  let currentData = state.dataset[index];
-  let currentQuestion = currentData.question;
-  let currentAnswers = currentData.answers;
+  let selectNumberDate = state.dataset[index+1];
+  let selectNumberQuestion = selectNumberDate.question;
+  let selectNumberAnswers = selectNumberDate.answers;
+  let currentAnswerList = state.answerList;
+  // console.log(currentAnswerList[0]);
+  let selectNumberAnswerlist = [];
+  for(var i=0; i<index; i++) {
+    selectNumberAnswerlist.push(currentAnswerList[i]);
+    // selectNumberAnswerlist.push("変更");
+  }
 
   return{
     type: SELECT_NUMBER,
     payload: {
-      currentId: "",
-      question: currentQuestion,
-      answers: currentAnswers,
+      currentId: index,
+      question: selectNumberQuestion,
+      answers: selectNumberAnswers,
+      answerList: selectNumberAnswerlist,
     }
   }
 }

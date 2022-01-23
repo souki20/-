@@ -16,7 +16,7 @@ const App = () => {
   const selector = useSelector((state) => state);
   // console.log('App.jsx');
   console.log(selector.contents);
-  console.log(selector.contents.answerList.length);
+  // console.log(selector.contents.answerList.length);
 
 
     // // 最初の一回だけ実行
