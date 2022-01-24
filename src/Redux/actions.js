@@ -28,7 +28,7 @@ export const selectNumber = (state, index) => {
   return{
     type: SELECT_NUMBER,
     payload: {
-      currentId: index,
+      currentId: index+1,
       question: selectNumberQuestion,
       answers: selectNumberAnswers,
       answerList: selectNumberAnswerlist,
