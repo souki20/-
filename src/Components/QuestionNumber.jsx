@@ -37,7 +37,7 @@ const flash = keyframes`
 `
 
 const styles = {
-  container: css`
+  flash: css`
   animation: ${flash} 1s linear infinite;
 `
 }
@@ -76,7 +76,7 @@ const QuestionNumber = () => {
         } else if(index == selector.currentId) {
           return (
             <Button 
-              className={ styles.container + ' ' + classes.button }
+              className={ styles.flash + ' ' + classes.button }
               variant="contained"
               key={(index-1).toString()}
             >
