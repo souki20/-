@@ -3,6 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BeforeAnswer } from './Components';
 import { makeStyles, createStyles } from '@material-ui/styles';
+import { useDispatch, useSelector } from 'react-redux';
+import { push } from 'connected-react-router';
+import { backPageDiagnose } from './Redux/actions';
 
 
 const useStyles = makeStyles(() => (
@@ -28,6 +31,14 @@ const useStyles = makeStyles(() => (
 
 const Confirmation = (props) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const selector = useSelector(state => state.contents);
+
+
+  const backDiagnose = (state) => {
+    dispatch(backPageDiagnose(state));
+    dispatch(push("/diagnose"));
+  }
 
   return (
     <div className="top-section">
@@ -36,7 +47,7 @@ const Confirmation = (props) => {
           {props.title}  
         </div>
         <Button variant="contained" className={classes.mainButton}> 診断結果を見る </Button>
-        <Button variant="contained" className={classes.subButton}> 質問に戻る </Button>
+        <Button variant="contained" className={classes.subButton} onClick={() => backDiagnose(selector)}> 質問に戻る </Button>
       </div>
       <div className='top-content-right'>
         <BeforeAnswer

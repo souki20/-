@@ -5,6 +5,7 @@ import { makeStyles, createStyles } from '@material-ui/styles';
 import '../styles/style.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectNumber } from '../Redux/actions';
+import { css, keyframes } from '@emotion/css';
 
 
 const useStyles = makeStyles(() => (
@@ -19,6 +20,28 @@ const useStyles = makeStyles(() => (
   })
 ));
 
+const flash = keyframes`
+0%,100% {
+  opacity: 1;
+  background-color: #5a5a5a;
+  // color: #f3f3f3f3;
+}
+
+50% {
+  opacity: 0.5;
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  // background-color: #d5d5d5;
+  background-color: #5a5a5a;
+  // color: #f3f3f3f3;
+}
+`
+
+const styles = {
+  container: css`
+  animation: ${flash} 1s linear infinite;
+`
+}
+
 
 const QuestionNumber = () => {
   const classes = useStyles();
@@ -32,17 +55,30 @@ const QuestionNumber = () => {
   numbers = Object.keys(selector.dataset);
   //console.log(numbers.length);
 
+
+
   return(
     <div className='page-list'>
       {numbers.map((number, index) => {
+        index=index+1;
         if(index < selector.currentId){
+          // console.log(index);
           return (
             <Button 
-              className={classes.button}
+              className={ classes.button }
               variant="contained"
-              key={index.toString()}
-              // onClick={() => props.select(index+1)}
+              key={(index-1).toString()}
               onClick={() => dispatch(selectNumber(selector, index))}
+            >
+            {number}
+            </Button>
+          )
+        } else if(index == selector.currentId) {
+          return (
+            <Button 
+              className={ styles.container + ' ' + classes.button }
+              variant="contained"
+              key={(index-1).toString()}
             >
             {number}
             </Button>
@@ -52,7 +88,7 @@ const QuestionNumber = () => {
             <Button 
               className={classes.button}
               variant="contained"
-              key={index.toString()}
+              key={(index-1).toString()}
             >
             {number}
             </Button>

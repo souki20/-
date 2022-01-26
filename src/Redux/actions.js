@@ -4,6 +4,7 @@
 export const INIT_DATASET = "INIT_DATASET";
 export const SELECT_NUMBER = "SELECT_NUMBER";
 export const SELECT_ANSWER = "SELECT_ANSWER";
+export const BACK_DIAGNOSE = "BACK_DIAGNOSE";
 
 
 // Action Creater
@@ -14,21 +15,21 @@ export const initDataset = () => {
 }
 
 export const selectNumber = (state, index) => {
-  let selectNumberDate = state.dataset[index+1];
+  let selectNumberDate = state.dataset[index];
   let selectNumberQuestion = selectNumberDate.question;
   let selectNumberAnswers = selectNumberDate.answers;
   let currentAnswerList = state.answerList;
   // console.log(currentAnswerList[0]);
   let selectNumberAnswerlist = [];
-  for(var i=0; i<index; i++) {
-    selectNumberAnswerlist.push(currentAnswerList[i]);
+  for(var i=1; i<index; i++) {
+    selectNumberAnswerlist.push(currentAnswerList[i-1]);
     // selectNumberAnswerlist.push("変更");
   }
 
   return{
     type: SELECT_NUMBER,
     payload: {
-      currentId: index+1,
+      currentId: index,
       question: selectNumberQuestion,
       answers: selectNumberAnswers,
       answerList: selectNumberAnswerlist,
@@ -65,6 +66,15 @@ export const selectAnswer = (state, value) => {
 }
 
 
-export const lastAnswerClick = () => {
+export const backPageDiagnose = (state) => {
+  let newAnswerList = [];
+  let currentAnswerList = state.answerList;
+  newAnswerList = currentAnswerList.pop();
 
+  return{
+    type: BACK_DIAGNOSE,
+    payload: {
+      answerList: newAnswerList,
+    }
+  }
 }

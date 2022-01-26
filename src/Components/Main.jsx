@@ -5,8 +5,6 @@ import { QuestionNumber} from './index';
 
 const Main = () => {
 
-  // const contentsSelector = (state) => state.contents;
-
   return(
     <>
       <div className='page-section'>
