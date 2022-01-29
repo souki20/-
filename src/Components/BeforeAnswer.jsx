@@ -4,9 +4,10 @@ import { useSelector } from 'react-redux';
 // import { RenderBeforeAnswer } from './index';
 
 
-const RenderBeforeAnswer = (props) => {
+const RenderBeforeAnswer = () => {
 
   const selector = useSelector(state => state.contents);
+  console.log(selector);
 
 
   if (selector.currentId == 1) {
@@ -21,11 +22,11 @@ const RenderBeforeAnswer = (props) => {
 }
 
 
-const BeforeAnswer = (props) => {
+const BeforeAnswer = () => {
   
   return (
     <div className='beforeAnswer-content'>
-      {RenderBeforeAnswer(props)}
+      {RenderBeforeAnswer()}
     </div>
   )
 

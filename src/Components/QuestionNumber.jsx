@@ -4,8 +4,10 @@ import { Button } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import '../styles/style.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectNumber } from '../Redux/actions';
+import { selectNumber, backPageTop, initDataset } from '../Redux/actions';
 import { css, keyframes } from '@emotion/css';
+import { push } from 'connected-react-router';
+// import { initDataset, INIT_DATASET } from './Redux/actions';
 
 
 const useStyles = makeStyles(() => (
@@ -17,6 +19,12 @@ const useStyles = makeStyles(() => (
       borderRadius: '50%',
       margin: '10px',
     },
+    "backtop": {
+      marginRight: '30px',
+      fontSize: '0.7rem',
+      lineHeight: 'normal',
+      height: '35px',
+    }
   })
 ));
 
@@ -42,6 +50,25 @@ const styles = {
 `
 }
 
+const backTop = (classes, dispatch) => {
+  const backTopPage = () => {
+    dispatch(initDataset());
+    dispatch(push("/"));
+  }
+
+
+  return(
+    <Button 
+      variant='contained'
+      className={ classes.backtop }
+      onClick={() => {dispatch(push("/"))}}
+      // onClick={() => backTopPage()}
+    >
+      ＜　トップページ　
+    </Button>
+  )
+}
+
 
 const QuestionNumber = () => {
   const classes = useStyles();
@@ -59,6 +86,7 @@ const QuestionNumber = () => {
 
   return(
     <div className='page-list'>
+      {backTop(classes, dispatch)}
       {numbers.map((number, index) => {
         index=index+1;
         if(index < selector.currentId){

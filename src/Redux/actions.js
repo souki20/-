@@ -5,6 +5,7 @@ export const INIT_DATASET = "INIT_DATASET";
 export const SELECT_NUMBER = "SELECT_NUMBER";
 export const SELECT_ANSWER = "SELECT_ANSWER";
 export const BACK_DIAGNOSE = "BACK_DIAGNOSE";
+export const BACK_TOP = "BACK_TOP";
 
 
 // Action Creater
@@ -75,6 +76,17 @@ export const backPageDiagnose = (state) => {
     type: BACK_DIAGNOSE,
     payload: {
       answerList: newAnswerList,
+    }
+  }
+}
+
+
+export const backPageTop = () => {
+  return{
+    type: BACK_TOP,
+    payload: {
+      answerList: [],
+      currentId: 1,
     }
   }
 }

@@ -8,8 +8,7 @@ import { store } from '.';
 
 
 const App = () => {
-
-
+  
   const dispatch = useDispatch();
 
   // stateの必要な部分を返す関数の引数を受け取ります

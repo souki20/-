@@ -23,6 +23,7 @@
 .page-list {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .page-section {
