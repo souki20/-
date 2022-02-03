@@ -1,10 +1,12 @@
 #root {
   min-width: 769px;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .top-section {
   display: flex;
-  max-width: 960px;
+  /* max-width: 960px; */
   height: 65vh;
   margin: 100px auto 0;
   background-color: #F1F5B9;
@@ -94,3 +96,11 @@
   margin: 3px;
   text-align: center;
 }
+
+
+/* ### */
+/* resultページ */
+.result-title {
+  text-align: center;
+}
+/* ### */

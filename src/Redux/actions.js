@@ -5,13 +5,28 @@ export const INIT_DATASET = "INIT_DATASET";
 export const SELECT_NUMBER = "SELECT_NUMBER";
 export const SELECT_ANSWER = "SELECT_ANSWER";
 export const BACK_DIAGNOSE = "BACK_DIAGNOSE";
-export const BACK_TOP = "BACK_TOP";
+// export const BACK_TOP = "BACK_TOP";
 
 
 // Action Creater
-export const initDataset = () => {
+export const initDataset = (state) => {
+  const currentId = 1;
+  const initData = state.dataset[currentId];
+  const initQuestion = initData.question;
+  const initAnswer = Object.values(initData.answers);
+  const initAnswerConfirm = Object.values(initData.selectAnswerConfirm);
+  const initTotalQuestions = Object.keys(state.dataset).length;
+
   return{
     type: INIT_DATASET,
+    payload: {
+      currentId: currentId,
+      totalQuestions: initTotalQuestions,
+      question: initQuestion,
+      answers: initAnswer,
+      answerList: [],
+      answerConfirm: initAnswerConfirm,
+    }
   }
 }
 
@@ -89,12 +104,12 @@ export const backPageDiagnose = (state) => {
 }
 
 
-export const backPageTop = () => {
-  return{
-    type: BACK_TOP,
-    payload: {
-      answerList: [],
-      currentId: 1,
-    }
-  }
-}
+// export const backPageTop = () => {
+//   return{
+//     type: BACK_TOP,
+//     payload: {
+//       answerList: [],
+//       currentId: 1,
+//     }
+//   }
+// }

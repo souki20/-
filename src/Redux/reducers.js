@@ -11,18 +11,19 @@ export const defaultReducer = (state = initialState.contents, action) => {
   // console.log('reducers.jsx');
   switch(action.type) {
     case Actions.INIT_DATASET:
-      const initData = state.dataset[state.currentId];
-      const initQuestion = initData.question;
-      // const initAnswer = initData.answers;
-      const initAnswer = Object.values(initData.answers);
-      const initAnswerConfirm = Object.values(initData.selectAnswerConfirm);
-      const initTotalQuestions = Object.keys(state.dataset).length; 
+      // const initData = state.dataset[state.currentId];
+      // const initQuestion = initData.question;
+      // // const initAnswer = initData.answers;
+      // const initAnswer = Object.values(initData.answers);
+      // const initAnswerConfirm = Object.values(initData.selectAnswerConfirm);
+      // const initTotalQuestions = Object.keys(state.dataset).length; 
       return{
         ...state,
-        question: initQuestion,
-        answers: initAnswer,
-        answerConfirm: initAnswerConfirm,
-        totalQuestions: initTotalQuestions,
+        // question: initQuestion,
+        // answers: initAnswer,
+        // answerConfirm: initAnswerConfirm,
+        // totalQuestions: initTotalQuestions,
+        ...action.payload,
       }
     case Actions.SELECT_NUMBER:
       return{
@@ -39,11 +40,11 @@ export const defaultReducer = (state = initialState.contents, action) => {
         ...state,
         // ...action.payload,
       }
-    case Actions.backPageTop:
-      return{
-        ...state,
-        ...action.payload,
-      }
+    // case Actions.BACK_TOP:
+    //   return{
+    //     ...state,
+    //     ...action.payload,
+    //   }
     default:
       return state
   }

@@ -6,6 +6,7 @@ import { push } from 'connected-react-router';
 import { useDispatch, useSelector } from 'react-redux';
 // import { initDataset } from './Redux/actions';
 import { store } from '..';
+import { initDataset } from '../Redux/actions';
 // import { INIT_DATASET } from '../Redux/actions';
 
 
@@ -30,9 +31,15 @@ const useStyles = makeStyles(() => (
 
 
 const TopPage = (props) => {
-  const classes = useStyles();
 
+  const classes = useStyles();
   const dispatch = useDispatch();
+  const selector = useSelector(state => state.contents);
+
+  const moveDiagnose = (state) => {
+    dispatch(initDataset(state));
+    dispatch(push("/diagnose"));
+  }
 
   return (
     <div className="top-section">
@@ -43,8 +50,8 @@ const TopPage = (props) => {
         <Button 
           variant="contained"
           className={classes.mainButton}
-          onClick={() => {dispatch(push("/diagnose"))}}
-        > 今すぐ診断をする </Button>
+          onClick={() => moveDiagnose(selector)}
+        > 診断をする </Button>
         <Button variant="contained" className={classes.subButton}> 説明を見る </Button>
       </div>
     </div>
