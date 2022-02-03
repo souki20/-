@@ -44,7 +44,7 @@ export const selectNumber = (state, index) => {
 export const selectAnswer = (state, value, answer) => {
   let currentAnswerList = state.answerList;
   // let newAnswerList = currentAnswerList.concat(value);
-  console.log(answer);
+  // console.l:wq:wq:wqqwog(answer);
   let newAnswerList = currentAnswerList.concat(answer);
   let nextId = Number(state.currentId)+1;
 

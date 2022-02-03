@@ -30,6 +30,7 @@ const Diagnose = (props) => {
           />
         </div>
         <div className='main-content-right'>
+          <p className="beforeAnswer-title">彼(彼女)に対して</p>
           <BeforeAnswer
             // currentId={contentsSelector.currentId}
             // value={contentsSelector.answerList}

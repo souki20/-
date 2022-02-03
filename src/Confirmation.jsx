@@ -50,6 +50,7 @@ const Confirmation = (props) => {
         <Button variant="contained" className={classes.subButton} onClick={() => backDiagnose(selector)}> 質問に戻る </Button>
       </div>
       <div className='top-content-right'>
+        <p className="beforeAnswer-title">彼(彼女)に対して</p>
         <BeforeAnswer
           // currentId={props.currentId}
           // value={props.answerList}

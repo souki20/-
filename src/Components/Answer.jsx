@@ -10,8 +10,8 @@ import { push } from 'connected-react-router';
 const useStyles = makeStyles(() => (
   createStyles({
     "button": {
-      width: '7rem',
-      height: '7rem',
+      width: '8rem',
+      height: '8rem',
       minWidth: 0,
       borderRadius: '50%',
     },

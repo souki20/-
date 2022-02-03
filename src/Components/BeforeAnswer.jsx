@@ -11,12 +11,12 @@ const RenderBeforeAnswer = () => {
 
 
   if (selector.currentId == 1) {
-    return <div className='beforeAnswer-item'>過去の回答が表示されます</div>;
+    return <div className='beforeAnswer-item-start'>過去の回答が表示されます</div>;
   } else {
     return (
       selector.answerList.map((value, index) => {
         // return <div className='beforeAnswer-item' key={index.toString()}>{selector.beforeQuestions[index]}{value}</div>;
-        return <div className='beforeAnswer-item' key={index.toString()}>{value}</div>;
+        return <div className='beforeAnswer-item' key={index.toString()}>・{value}</div>;
       })
     )
   }
