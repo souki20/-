@@ -1,3 +1,7 @@
+#root {
+  min-width: 769px;
+}
+
 .top-section {
   display: flex;
   max-width: 960px;

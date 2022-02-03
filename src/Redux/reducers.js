@@ -13,12 +13,15 @@ export const defaultReducer = (state = initialState.contents, action) => {
     case Actions.INIT_DATASET:
       const initData = state.dataset[state.currentId];
       const initQuestion = initData.question;
-      const initAnswer = initData.answers;
+      // const initAnswer = initData.answers;
+      const initAnswer = Object.values(initData.answers);
+      const initAnswerConfirm = Object.values(initData.selectAnswerConfirm);
       const initTotalQuestions = Object.keys(state.dataset).length; 
       return{
         ...state,
         question: initQuestion,
         answers: initAnswer,
+        answerConfirm: initAnswerConfirm,
         totalQuestions: initTotalQuestions,
       }
     case Actions.SELECT_NUMBER:

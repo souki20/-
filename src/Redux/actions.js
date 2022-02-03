@@ -18,7 +18,9 @@ export const initDataset = () => {
 export const selectNumber = (state, index) => {
   let selectNumberDate = state.dataset[index];
   let selectNumberQuestion = selectNumberDate.question;
-  let selectNumberAnswers = selectNumberDate.answers;
+  // let selectNumberAnswers = selectNumberDate.answers;
+  let selectNumberAnswers = Object.values(selectNumberDate.answers);
+  let selectNumberAnswerConfirm = Object.values(selectNumberDate.selectAnswerConfirm);
   let currentAnswerList = state.answerList;
   // console.log(currentAnswerList[0]);
   let selectNumberAnswerlist = [];
@@ -34,13 +36,16 @@ export const selectNumber = (state, index) => {
       question: selectNumberQuestion,
       answers: selectNumberAnswers,
       answerList: selectNumberAnswerlist,
+      answerConfirm: selectNumberAnswerConfirm,
     }
   }
 }
 
-export const selectAnswer = (state, value) => {
+export const selectAnswer = (state, value, answer) => {
   let currentAnswerList = state.answerList;
-  let newAnswerList = currentAnswerList.concat(value);
+  // let newAnswerList = currentAnswerList.concat(value);
+  console.log(answer);
+  let newAnswerList = currentAnswerList.concat(answer);
   let nextId = Number(state.currentId)+1;
 
   if(nextId == state.totalQuestions+1) {
@@ -53,7 +58,9 @@ export const selectAnswer = (state, value) => {
   } else {
     let nextData = state.dataset[nextId];
     let nextQuestion = nextData.question;
-    let nextAnswers = nextData.answers;
+    // let nextAnswers = nextData.answers;
+    let nextAnswers = Object.values(nextData.answers);
+    let nextAnswerConfirm = Object.values(nextData.selectAnswerConfirm);
     return{
       type: SELECT_ANSWER,
       payload: {
@@ -61,6 +68,7 @@ export const selectAnswer = (state, value) => {
         question: nextQuestion,
         answers: nextAnswers,
         answerList: newAnswerList,
+        answerConfirm: nextAnswerConfirm,
       }
     }
   }

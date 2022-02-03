@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 const RenderBeforeAnswer = () => {
 
   const selector = useSelector(state => state.contents);
-  console.log(selector);
+  // console.log(selector);
 
 
   if (selector.currentId == 1) {
@@ -15,7 +15,8 @@ const RenderBeforeAnswer = () => {
   } else {
     return (
       selector.answerList.map((value, index) => {
-        return <div className='beforeAnswer-item' key={index.toString()}>{selector.beforeQuestions[index]}{value}</div>;
+        // return <div className='beforeAnswer-item' key={index.toString()}>{selector.beforeQuestions[index]}{value}</div>;
+        return <div className='beforeAnswer-item' key={index.toString()}>{value}</div>;
       })
     )
   }

@@ -9,8 +9,10 @@ const AnswerList = (props) => {
   const selector = useSelector(state => state.contents);
 
   let answers = [];
+  let answerConfirm = [];
   for (let i=0; i<selector.answers.length; i++) {
-    answers.push(selector.answers[i]);
+    answers.unshift(selector.answers[i]);
+    answerConfirm.unshift(selector.answerConfirm[i]);
   }
 
 
@@ -19,6 +21,7 @@ const AnswerList = (props) => {
       {answers.map((answer, index) => {
         return <Answer
         value={answer} 
+        selectAnswerConfirm = {answerConfirm[index]}
         key={index.toString()} 
         // select={props.select}
         />
