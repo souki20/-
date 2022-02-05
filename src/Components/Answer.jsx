@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => (
 const changeConfirmation = (props,classes,selector,dispatch,numbers, currentId) => {
 
   const lastAnswerClick = () => {
-    dispatch(selectAnswer(selector, props.value, props.selectAnswerConfirm));
+    dispatch(selectAnswer(selector, props.count, props.selectAnswerConfirm));
     dispatch(push("/confirmation"));
   }
 
@@ -43,7 +43,7 @@ const changeConfirmation = (props,classes,selector,dispatch,numbers, currentId) 
       className={classes.button}
       variant="contained"
       key={props.count}
-      onClick={() => dispatch(selectAnswer(selector, props.value, props.selectAnswerConfirm))}
+      onClick={() => dispatch(selectAnswer(selector, props.count, props.selectAnswerConfirm))}
     >
     {props.value}
     </Button>

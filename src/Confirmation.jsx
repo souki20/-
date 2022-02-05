@@ -35,6 +35,13 @@ const Confirmation = (props) => {
   const selector = useSelector(state => state.contents);
 
 
+  // Confirmationコンポーネントを描画するときにstateに値が入っているかどうか
+  if(selector.question === "") {
+    dispatch(push("/diagnose"));
+    return false;
+  }
+
+
   const backDiagnose = (state) => {
     dispatch(backPageDiagnose(state));
     dispatch(push("/diagnose"));

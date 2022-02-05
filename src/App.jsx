@@ -12,18 +12,18 @@ const App = () => {
   const dispatch = useDispatch();
 
   // stateの必要な部分を返す関数の引数を受け取ります
-  const selector = useSelector((state) => state);
+  const selector = useSelector((state) => state.contents);
   // console.log('App.jsx');
-  console.log(selector.contents);
+  console.log(selector);
   // console.log(selector.contents.answerList.length);
 
 
     // // 最初の一回だけ実行
-    useEffect(() => {
-      // dispatch(initDataset())
-      // store.dispatch(initDataset())
-      store.dispatch({type: INIT_DATASET})
-    }, [])
+    // useEffect(() => {
+    //   // dispatch(initDataset())
+    //   // store.dispatch(initDataset())
+    //   store.dispatch(initDataset(selector))
+    // }, [])
 
 
 

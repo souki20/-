@@ -26,6 +26,8 @@ export const initDataset = (state) => {
       answers: initAnswer,
       answerList: [],
       answerConfirm: initAnswerConfirm,
+      loveCountList: [],
+      loveCount: 0,
     }
   }
 }
@@ -37,11 +39,15 @@ export const selectNumber = (state, index) => {
   let selectNumberAnswers = Object.values(selectNumberDate.answers);
   let selectNumberAnswerConfirm = Object.values(selectNumberDate.selectAnswerConfirm);
   let currentAnswerList = state.answerList;
-  // console.log(currentAnswerList[0]);
+  let currentLoveCountList = state.loveCountList;
   let selectNumberAnswerlist = [];
+  let changeLoveCountList = [];
+  let changeLoveCount = 0;
+
   for(var i=1; i<index; i++) {
     selectNumberAnswerlist.push(currentAnswerList[i-1]);
-    // selectNumberAnswerlist.push("変更");
+    changeLoveCountList.push(currentLoveCountList[i-1]);
+    changeLoveCount += Number(currentLoveCountList[i-1]);
   }
 
   return{
@@ -52,22 +58,31 @@ export const selectNumber = (state, index) => {
       answers: selectNumberAnswers,
       answerList: selectNumberAnswerlist,
       answerConfirm: selectNumberAnswerConfirm,
+      loveCountList: changeLoveCountList,
+      loveCount: changeLoveCount,
     }
   }
 }
 
-export const selectAnswer = (state, value, answer) => {
+export const selectAnswer = (state, count, answer) => {
   let currentAnswerList = state.answerList;
   // let newAnswerList = currentAnswerList.concat(value);
-  // console.l:wq:wq:wqqwog(answer);
+  // console.log(answer);
   let newAnswerList = currentAnswerList.concat(answer);
   let nextId = Number(state.currentId)+1;
+  let loveCountList = state.loveCountList;
+  loveCountList.push(count);
+  let countNumber = Number(count);
+  let loveCount = state.loveCount;
+  loveCount = loveCount + countNumber;
 
   if(nextId == state.totalQuestions+1) {
     return{
       type: SELECT_ANSWER,
       payload: {
         answerList: newAnswerList,
+        loveCountList: loveCountList,
+        loveCount: loveCount,
       }
     }
   } else {
@@ -84,6 +99,8 @@ export const selectAnswer = (state, value, answer) => {
         answers: nextAnswers,
         answerList: newAnswerList,
         answerConfirm: nextAnswerConfirm,
+        loveCountList: loveCountList,
+        loveCount: loveCount,
       }
     }
   }

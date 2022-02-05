@@ -1,6 +1,9 @@
-import React from 'react';
+import { push } from 'connected-react-router';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { store } from '..';
+import { initDataset } from '../Redux/actions';
 import { AnswerList, Question, BeforeAnswer } from './index';
 import Main from './Main';
 
@@ -8,6 +11,19 @@ import Main from './Main';
 const Diagnose = (props) => {
 
   // const contentsSelector = useSelector(state => state);
+  const selector = useSelector(state => state.contents);
+  const dispatch = useDispatch();
+
+  // Diagnoseコンポーネントを描画する時stateに値が入っているかどうか
+  if(selector.question === "") {
+    dispatch(initDataset(selector));
+  }
+
+  // dispatch()
+  // useEffect(() => {
+  //   console.log('Diagnose')
+  //   store.dispatch(initDataset(selector))
+  // },[])
 
   return(
     <>

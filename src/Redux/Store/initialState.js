@@ -12,6 +12,8 @@ const initialState = {
     answers: "",
     answerList: [],
     answerConfirm: [],
+    loveCountList: [],
+    loveCount: 0,
   }
 }
 
