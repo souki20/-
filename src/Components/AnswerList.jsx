@@ -11,17 +11,29 @@ const AnswerList = (props) => {
   const selector = useSelector(state => state.contents);
   const dispatch = useDispatch();
 
+  // let answers = [];
+  // let answerConfirm = [];
+  // answers = selector.answers;
+  // answerConfirm = selector.answerConfirm;
+
   // useEffect(() => {
   //   console.log("useEffect");
   //   dispatch(initDataset(selector))
   // }, [])
 
-  // let answers = [];
-  // let answerConfirm = [];
-  // for (let i=0; i<selector.answers.length; i++) {
-  //   answers.unshift(selector.answers[i]);
-  //   answerConfirm.unshift(selector.answerConfirm[i]);
-  // }
+  // ここがなかったらanswersがundefideとなりエラーになる
+  // answers = selector.answersではエラー
+  // ↑ではanswersがundefinedだが↓ではfor文が実行されず、answersは[]となる
+  let answers = [];
+  let answerConfirm = [];
+  for (let i=0; i<selector.answers.length; i++) {
+    // answers.unshift(selector.answers[i]);
+    // answerConfirm.unshift(selector.answerConfirm[i]);
+    answers.push(selector.answers[i]);
+    answerConfirm.push(selector.answerConfirm[i]);
+  }
+
+
 
   // console.log(selector.answers);
   // console.log(selector.answerConfirm);
@@ -44,10 +56,10 @@ const AnswerList = (props) => {
     //   })}
     // </div>
     <div className='answer-content'>
-      {selector.answers.map((answer, index) => {
+      {answers.map((answer, index) => {
         return <Answer
         value={answer} 
-        selectAnswerConfirm = {selector.answerConfirm[index]}
+        selectAnswerConfirm = {answerConfirm[index]}
         count={index.toString()} 
         key={index.toString()}
         // select={props.select}

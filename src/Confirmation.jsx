@@ -5,7 +5,7 @@ import { BeforeAnswer } from './Components';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { push } from 'connected-react-router';
-import { backPageDiagnose } from './Redux/actions';
+import { backPageDiagnose, initDataset } from './Redux/actions';
 
 
 const useStyles = makeStyles(() => (
@@ -37,6 +37,7 @@ const Confirmation = (props) => {
 
   // Confirmationコンポーネントを描画するときにstateに値が入っているかどうか
   if(selector.question === "") {
+    // dispatch(initDataset(selector));
     dispatch(push("/diagnose"));
     return false;
   }

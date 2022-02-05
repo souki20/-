@@ -1,10 +1,12 @@
 // 必要なstateを全て記述
 import defaultDataset from "../../dataset";
+import defaultTextDataset from "../../dataset";
 
 
 const initialState = {
   contents: {
     dataset: defaultDataset,
+    textData: defaultTextDataset,
     currentId: 1,
     totalQuestions: "",
     question: "",

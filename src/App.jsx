@@ -19,12 +19,13 @@ const App = () => {
 
 
     // // 最初の一回だけ実行
-    // useEffect(() => {
-    //   // dispatch(initDataset())
-    //   // store.dispatch(initDataset())
-    //   store.dispatch(initDataset(selector))
-    // }, [])
-
+    useEffect(() => {
+      // console.log('state更新')
+      // dispatch(initDataset())
+      // store.dispatch(initDataset())
+      // store.dispatch({type: INIT_DATASET})
+      store.dispatch(initDataset(selector))
+    }, [])
 
 
     return (

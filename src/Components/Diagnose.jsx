@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { store } from '..';
-import { initDataset } from '../Redux/actions';
+import { initDataset, INIT_DATASET } from '../Redux/actions';
 import { AnswerList, Question, BeforeAnswer } from './index';
 import Main from './Main';
 
@@ -15,15 +15,24 @@ const Diagnose = (props) => {
   const dispatch = useDispatch();
 
   // Diagnoseコンポーネントを描画する時stateに値が入っているかどうか
-  if(selector.question === "") {
-    dispatch(initDataset(selector));
-  }
+  // if(selector.question === "") {
+  //   dispatch(initDataset(selector));
+  // }
 
   // dispatch()
   // useEffect(() => {
   //   console.log('Diagnose')
   //   store.dispatch(initDataset(selector))
   // },[])
+
+
+  // useEffect(() => {
+  //   console.log('state更新')
+  //   // dispatch(initDataset())
+  //   // store.dispatch(initDataset())
+  //   // store.dispatch(initDataset(selector))
+  //   store.dispatch({type: INIT_DATASET});
+  // }, [])
 
   return(
     <>

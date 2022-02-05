@@ -10,12 +10,12 @@ export const BACK_DIAGNOSE = "BACK_DIAGNOSE";
 
 // Action Creater
 export const initDataset = (state) => {
-  const currentId = 1;
-  const initData = state.dataset[currentId];
-  const initQuestion = initData.question;
-  const initAnswer = Object.values(initData.answers);
-  const initAnswerConfirm = Object.values(initData.selectAnswerConfirm);
-  const initTotalQuestions = Object.keys(state.dataset).length;
+  let currentId = 1;
+  let initData = state.dataset[currentId];
+  let initQuestion = initData.question;
+  let initAnswer = Object.values(initData.answers);
+  let initAnswerConfirm = Object.values(initData.selectAnswerConfirm);
+  let initTotalQuestions = Object.keys(state.dataset).length;
 
   return{
     type: INIT_DATASET,

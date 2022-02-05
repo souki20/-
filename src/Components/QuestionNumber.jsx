@@ -75,7 +75,6 @@ const backTop = (classes, dispatch) => {
 const QuestionNumber = () => {
   const classes = useStyles();
 
-  // const contentsSelector = (state) => state.contents;
   const selector = useSelector(state => state.contents);
   const dispatch = useDispatch();
 
