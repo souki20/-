@@ -53,24 +53,23 @@ const Result = () => {
 
     if(selector.loveCount == 0) {
       return(
-        <div>あなたは彼（彼女）のことを愛していません。</div>
-        // <div>{selector.textData[bottom]}</div>
+        <div>{selector.textData["bottom"]}</div>
       )
     } else if(selector.loveCount < 5) {
       return(
-        <div>あなたは彼（彼女）のことを「まあまあ好き」な状態です。</div>
+        <div>{selector.textData["fourth"]}</div>
       )
     } else if(selector.loveCount < 9) {
       return(
-        <div>あなたは彼（彼女）のことが好きです。</div>
+        <div>{selector.textData["third"]}</div>
       )
     } else if(selector.loveCount < 13) {
       return(
-        <div>あなたは彼（彼女）のことが大好きです。</div>
+        <div>{selector.textData["second"]}</div>
       )
     } else if(selector.loveCount == 13) {
       return(
-        <div>あなたは彼（彼女）のことが超大好きです。</div>
+        <div>{selector.textData["top"]}</div>
       )
     }
   }

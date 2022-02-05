@@ -1,6 +1,6 @@
 // 必要なstateを全て記述
-import defaultDataset from "../../dataset";
-import defaultTextDataset from "../../dataset";
+import defaultDataset from "../../Dataset/dataset";
+import defaultTextDataset from "../../Dataset/textDataset";
 
 
 const initialState = {
